@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7943524662277740945}
   - component: {fileID: 1299158878740307094}
   - component: {fileID: 4567766790742637374}
+  - component: {fileID: 5795011040379874556}
   m_Layer: 0
   m_Name: TennisBall
   m_TagString: TennisBall
@@ -136,3 +137,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &5795011040379874556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265383661051222324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18f02ec36fe41498b7ac81f29d9681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

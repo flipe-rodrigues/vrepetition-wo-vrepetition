@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Anchor
+  - TennisBall
+  - Racket
   layers:
   - Default
   - TransparentFX
@@ -12,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ball
+  - Court_IN
+  - Court_OUT
+  - Racket
+  - Net
   - 
   - 
   - 

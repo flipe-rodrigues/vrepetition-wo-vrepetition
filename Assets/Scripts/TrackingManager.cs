@@ -27,7 +27,7 @@ public class TrackingManager : MonoBehaviour
             return;
         }
 
-        string trajectory_file = string.Concat(UIManager.subjectCode, "_", UIManager.subjectAge, "_", UIManager.subjectSex, "_TAFC_trajectory_");
+        string trajectory_file = string.Concat(UIManager.subjectCode, "_", UIManager.subjectAge, "_", UIManager.subjectSex, "_trajectory_");
 
         this.CreateIfInexistent(Application.dataPath + "/Data" + "/Trajectories");
 
@@ -73,6 +73,7 @@ public class TrackingManager : MonoBehaviour
         sb.Append("RotY,");
         sb.Append("RotZ,");
         sb.Append("RotW,");
+        sb.Append("Event"); 
 
 
         string headerLine = sb.ToString();
@@ -117,6 +118,17 @@ public class TrackingManager : MonoBehaviour
     private string GetFormattedTimestamp()
     {
         return DateTime.Now.ToString("yyyyMMdd_HHmmss");
+    }
+
+    public void RecordEvent(string eventName)
+    {
+        if (!saveData) return;
+
+        foreach (var writer in _objectWriters.Values)
+        {
+            // Formato: Time,0,0,0,0,0,0,0,EventName
+            writer.WriteLine($"{Time.timeSinceLevelLoad},0,0,0,0,0,0,0,{eventName}");
+        }
     }
 
     void OnDisable()

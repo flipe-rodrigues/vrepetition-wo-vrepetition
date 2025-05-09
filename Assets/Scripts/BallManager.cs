@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public class TennisBallSpawner : MonoBehaviour
+public class BallManager : MonoBehaviour
 {
-    public GameObject tennisBallPrefab; // Assign your tennis ball prefab in the Inspector
+    public GameObject tennisBall; // Assign your tennis ball prefab in the Inspector
     public Vector3 initialVelocity = new Vector3(0, 1, -1); // Initial velocity of the ball
     public float spawnInterval = 2.0f; // Time between spawns
 
@@ -25,11 +25,11 @@ public class TennisBallSpawner : MonoBehaviour
 
     void SpawnTennisBall()
     {
-        if (tennisBallPrefab != null)
+        if (tennisBall != null)
         {
-            GameObject newBall = Instantiate(tennisBallPrefab, this.transform.position, Quaternion.identity, this.transform);
+            tennisBall.transform.position = this.transform.position; // Set the position to the spawner's position
 
-            Rigidbody rb = newBall.GetComponent<Rigidbody>();
+            Rigidbody rb = tennisBall.GetComponent<Rigidbody>();
 
             if (rb != null)
             {
@@ -39,7 +39,7 @@ public class TennisBallSpawner : MonoBehaviour
                 rb.AddTorque(force, ForceMode.Impulse);
             }
 
-            OnBallSpawned?.Invoke(newBall); // Notify subscribers that a ball has been spawned
+            OnBallSpawned?.Invoke(tennisBall); // Notify subscribers that a ball has been spawned
 
         }
         else
