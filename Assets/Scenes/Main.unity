@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 302985988}
   - component: {fileID: 302985987}
   - component: {fileID: 302985986}
+  - component: {fileID: 302985990}
   m_Layer: 0
   m_Name: Court
   m_TagString: Untagged
@@ -400,7 +401,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -473,6 +474,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!65 &302985990
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302985985}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.837, y: 0.755, z: 6.1232336e-17}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &323200611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,10 +595,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7124504f795d648bb1bfac559de64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
   trackingList:
   - {fileID: 1720498566}
   - {fileID: 1720498563}
-  - {fileID: 8529659724957038942}
   saveData: 1
 --- !u!4 &325962351
 Transform:
@@ -643,7 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
-  ballSpawner: {fileID: 803040155}
+  ballSpawner: {fileID: 803040154}
   trackingManager: {fileID: 325962350}
 --- !u!1 &576100625
 GameObject:
@@ -834,6 +856,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grip
       objectReference: {fileID: 0}
+    - target: {fileID: 2274432971964330762, guid: cd4fa22d461206e47b90030314ec00b5, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2948790346549279500, guid: cd4fa22d461206e47b90030314ec00b5, type: 3}
       propertyPath: m_Size.y
       value: 3
@@ -871,12 +897,20 @@ PrefabInstance:
       value: Racket
       objectReference: {fileID: 0}
     - target: {fileID: 6869682691547927609, guid: cd4fa22d461206e47b90030314ec00b5, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869682691547927609, guid: cd4fa22d461206e47b90030314ec00b5, type: 3}
       propertyPath: m_TagString
       value: Racket
       objectReference: {fileID: 0}
     - target: {fileID: 7107516679229911434, guid: cd4fa22d461206e47b90030314ec00b5, type: 3}
       propertyPath: m_Name
       value: Top
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107516679229911434, guid: cd4fa22d461206e47b90030314ec00b5, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -927,7 +961,6 @@ GameObject:
   m_Component:
   - component: {fileID: 803040153}
   - component: {fileID: 803040154}
-  - component: {fileID: 803040155}
   m_Layer: 0
   m_Name: BallSpawner
   m_TagString: Untagged
@@ -958,28 +991,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803040152}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8834aac2be5404c4b9a3c808a96328d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tennisBall: {fileID: 6875120422324534527}
-  initialVelocity: {x: 0, y: 0.2, z: -0.2}
-  spawnInterval: 5
---- !u!114 &803040155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803040152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd1505e985f339146ba5ffd9dcd2f8e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f8492039bebdd4897f60a0a34b9613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tennisBallPrefab: {fileID: 4265383661051222324, guid: 073c89aac105ec746a06b81d2a0d4bab, type: 3}
-  initialVelocity: {x: 0, y: 0.3, z: -0.5}
+  initialVelocity: {x: 0, y: 0.3, z: -0.3}
   spawnInterval: 5
 --- !u!1 &1111219499 stripped
 GameObject:
@@ -1833,168 +1851,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3549fdaf258e11846b85a316c16c699c, type: 3}
---- !u!23 &749264234101603418
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875120422324534527}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a6b7348278fb823468362347d3b9a7db, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!4 &774895922425655853
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875120422324534527}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.5736012, y: -0.60979015, z: 0.37473923, w: -0.398382}
-  m_LocalPosition: {x: -0.031, y: 0.503, z: 0.221}
-  m_LocalScale: {x: 0.068, y: 0.068, z: 0.068}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 66.071, y: 532.07, z: 81.335}
---- !u!33 &3111066268986075695
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875120422324534527}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &3761906022547343671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875120422324534527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb18f02ec36fe41498b7ac81f29d9681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!54 &6573863473838759669
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875120422324534527}
-  serializedVersion: 4
-  m_Mass: 0.07
-  m_Drag: 0.1
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!1 &6875120422324534527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 774895922425655853}
-  - component: {fileID: 3111066268986075695}
-  - component: {fileID: 749264234101603418}
-  - component: {fileID: 8529659724957038941}
-  - component: {fileID: 6573863473838759669}
-  - component: {fileID: 3761906022547343671}
-  - component: {fileID: 8529659724957038942}
-  m_Layer: 6
-  m_Name: Tennis Ball
-  m_TagString: TennisBall
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!135 &8529659724957038941
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875120422324534527}
-  m_Material: {fileID: 13400000, guid: 426aa94fcd766ea4cb05329e9ee0e451, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8529659724957038942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875120422324534527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27412edeb10fb3843b863e0b407613f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2013,4 +1869,3 @@ SceneRoots:
   - {fileID: 1725555853}
   - {fileID: 325962351}
   - {fileID: 483386569}
-  - {fileID: 774895922425655853}

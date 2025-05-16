@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+// ALTERAR PARA A APROACH COM O SWITCH
 public class TaskManager : Singleton<TaskManager>
 {
     // Trail variables

@@ -7,7 +7,7 @@ using System.IO;
 using System;
 using UnityEditor.Overlays;
 
-public class TrackingManager : MonoBehaviour
+public class TrackingManager :Singleton<TrackingManager>
 {
     public List<TrajectoryTrackerVR> trackingList;
     public bool saveData;
@@ -15,13 +15,12 @@ public class TrackingManager : MonoBehaviour
     private Dictionary<string, StreamWriter> _objectWriters = new Dictionary<string, StreamWriter>();
  
 
-    private void Awake()
-    {
-        this.HomogeneizeAcrossCulturalSettings();
-    }
 
     void Start()
     {
+
+        this.HomogeneizeAcrossCulturalSettings();
+
         if (!saveData)
         {
             return;
@@ -120,14 +119,14 @@ public class TrackingManager : MonoBehaviour
         return DateTime.Now.ToString("yyyyMMdd_HHmmss");
     }
 
-    public void RecordEvent(string eventName)
+    public void RecordEvent(string eventName) // VAI DEIXAR DE EXISTIR
     {
         if (!saveData) return;
 
         foreach (var writer in _objectWriters.Values)
         {
-            // Formato: Time,0,0,0,0,0,0,0,EventName
-            writer.WriteLine($"{Time.timeSinceLevelLoad},0,0,0,0,0,0,0,{eventName}");
+            // Formato: Time,a,a,a,a,a,a,a,EventName
+            writer.WriteLine($"{Time.timeSinceLevelLoad},a,a,a,a,a,a,a,{eventName}");
         }
     }
 
