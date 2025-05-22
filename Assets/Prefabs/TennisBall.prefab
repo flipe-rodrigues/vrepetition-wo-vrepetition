@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5725271428333572068}
   - component: {fileID: 7943524662277740945}
   - component: {fileID: 1299158878740307094}
-  - component: {fileID: -6465174979459348496}
   - component: {fileID: 4567766790742637374}
   - component: {fileID: 5795011040379874556}
+  - component: {fileID: -6465174979459348496}
+  - component: {fileID: 7939942439113551219}
   m_Layer: 6
   m_Name: TennisBall
   m_TagString: TennisBall
@@ -111,18 +112,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6465174979459348496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4265383661051222324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27412edeb10fb3843b863e0b407613f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &4567766790742637374
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -157,8 +146,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4265383661051222324}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb18f02ec36fe41498b7ac81f29d9681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6465174979459348496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265383661051222324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27412edeb10fb3843b863e0b407613f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7939942439113551219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265383661051222324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f83b348d3b7aca4eb416c87466df638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

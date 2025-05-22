@@ -1,50 +1,57 @@
 using UnityEngine;
 
 public class RacketBehavior : MonoBehaviour{
+    [Header("Hit Settings")]
+    public float minHitSpeed = 0.5f; // Minimum racket speed to add force
+    public float baseHitPower = 5f;
+    public float maxHitPower = 20f;
+    public float velocityToPowerRatio = 0.5f;
+
     private Vector3 previousPosition;
-    private float previousTime;
-    public float forceMultiplier = 1.0f;
+    private Vector3 currentVelocity;
 
-    public GameObject dummy;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        previousPosition = transform.position;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        // update the previous position every frame
+        currentVelocity = (transform.position - previousPosition) / Time.deltaTime;
         previousPosition = transform.position;
-        previousTime = Time.time;
-
-        if (dummy != null)
-        {
-            dummy.transform.position = transform.position;
-        }
-
-       
     }
 
-//    private void OnCollisionEnter(Collision collision)
-//    {
-//        if (collision.gameObject.CompareTag("TennisBall"))
-//        {
-//           Rigidbody ballRb = collision.gameObject.GetComponent<Rigidbody>();
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("TennisBall"))
+        {
+            Rigidbody ballRb = collision.gameObject.GetComponent<Rigidbody>();
+            Vector3 racketFaceNormal = transform.forward;
+            Vector3 incomingDirection = ballRb.linearVelocity.normalized;
 
-//            float deltaTime = Time.time - previousTime;
+            // Basic reflection (works when racket is stationary)
+            Vector3 reflectedDirection = Vector3.Reflect(incomingDirection, racketFaceNormal);
 
-//            // calculate the racket's velocity based on movement since last frame
-//            Vector3 velocity = (transform.position - previousPosition) / deltaTime;
+            // Only add force if racket is moving significantly
+            if (currentVelocity.magnitude > minHitSpeed)
+            {
+                // Calculate additional force from racket movement
+                float racketSpeed = currentVelocity.magnitude;
+                float hitStrength = Mathf.Min(
+                    baseHitPower + (racketSpeed * velocityToPowerRatio),
+                    maxHitPower
+                );
 
-//            // get the direction of impact
-//            Vector3 impactDirection = collision.contacts[0].point - transform.position;
+                // Blend between pure reflection and added force
+                Vector3 forceDirection = Vector3.Lerp(
+                    reflectedDirection,
+                    currentVelocity.normalized,
+                    0.7f // 70% toward racket's movement direction
+                ).normalized;
 
-//            // Apply force to the ball in the direction of the racket's movement
-//            ballRb.AddForce(velocity * forceMultiplier, ForceMode.Impulse);
-//        }
-//    }
+                ballRb.AddForce(forceDirection * hitStrength, ForceMode.VelocityChange);
+            }
+            else
+            {
+                // Just reflect with energy conservation (no added force)
+                ballRb.linearVelocity = reflectedDirection * ballRb.linearVelocity.magnitude * 0.95f; // Small energy loss
+            }
+        }
+    }
 }
 

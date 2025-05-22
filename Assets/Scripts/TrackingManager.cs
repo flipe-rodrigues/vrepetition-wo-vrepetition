@@ -119,7 +119,7 @@ public class TrackingManager :Singleton<TrackingManager>
         return DateTime.Now.ToString("yyyyMMdd_HHmmss");
     }
 
-    public void RecordEvent(string eventName) // VAI DEIXAR DE EXISTIR
+    public void RecordEvent(string eventName) 
     {
         if (!saveData) return;
 
@@ -127,6 +127,21 @@ public class TrackingManager :Singleton<TrackingManager>
         {
             // Formato: Time,a,a,a,a,a,a,a,EventName
             writer.WriteLine($"{Time.timeSinceLevelLoad},a,a,a,a,a,a,a,{eventName}");
+        }
+    }
+
+    public void LogCollision(int layer1, int layer2)
+    {
+        if (!saveData) return;
+
+        string layerName1 = LayerMask.LayerToName(layer1);
+        string layerName2 = LayerMask.LayerToName(layer2);
+        string eventText = $"Collision_{layerName1}_{layerName2}";
+
+        // Log to all active trackers (or filter by involved objects)
+        foreach (var writer in _objectWriters.Values)
+        {
+            writer.WriteLine($"{Time.timeSinceLevelLoad},a,a,a,a,a,a,a,{eventText}");
         }
     }
 

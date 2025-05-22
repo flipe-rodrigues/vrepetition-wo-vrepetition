@@ -11,7 +11,7 @@ public class TaskManager : Singleton<TaskManager>
     public int ValidTrialCounter { get; private set; } = 0;
     public bool IsTrialActive { get; private set; } = false;
 
-    private GameObject currentBall;
+    private GameObject _currentBall;
 
     // References
 
@@ -34,29 +34,13 @@ public class TaskManager : Singleton<TaskManager>
 
         TrialCounter++;
         IsTrialActive = true;
-        currentBall = ball;
+        _currentBall = ball;
 
         // Adiciona um marcador no CSV
         trackingManager.RecordEvent($"TrialStart_{TrialCounter}");
 
-        // Configurar listeners para a bola
-        var tennisBall = ball.GetComponent<TennisBall>();
-        if (tennisBall == null)
-        {
-            tennisBall = ball.AddComponent<TennisBall>();
-        }
 
-        tennisBall.OnRacketImpact += RegisterImpact;
     }
-
-    public void RegisterImpact(Vector3 impactPosition)
-    {
-        if (!IsTrialActive) return;
-
-        // Marca o impacto no CSV 
-        trackingManager.RecordEvent("RacketImpact");
-    }
-
 
     private void EndTrial()
     {
@@ -65,18 +49,8 @@ public class TaskManager : Singleton<TaskManager>
         // Marca o fim do trial no CSV
         trackingManager.RecordEvent("TrialEnd");
 
-        // Limpeza
-        if (currentBall != null)
-        {
-            var tennisBall = currentBall.GetComponent<TennisBall>();
-            if (tennisBall != null)
-            {
-                tennisBall.OnRacketImpact -= RegisterImpact;
-            }
-        }
-
         IsTrialActive = false;
-        currentBall = null;
+        _currentBall = null;
     }
 
     private void OnDestroy()
