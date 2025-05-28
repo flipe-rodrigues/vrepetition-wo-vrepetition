@@ -21,9 +21,14 @@ public class TaskManager : Singleton<TaskManager>
 
     private void Start()
     {
+        // adquirir a posição do Ball Spawnern e a velocidade da bola e logar no csv
+        trackingManager.RecordEvent($"BallSpawnerPosition_{ballSpawner.transform.position}");
+        trackingManager.RecordEvent($"BallInitialVelocity_{ballSpawner.initialVelocity}");
+
         // Registrar para os eventos de spawn da bola
         ballSpawner.OnBallSpawned += StartTrial;
     }
+
 
     public void StartTrial(GameObject ball)
     {
