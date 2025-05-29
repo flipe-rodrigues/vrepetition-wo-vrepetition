@@ -560,6 +560,7 @@ MonoBehaviour:
   - {fileID: 1720498563}
   - {fileID: 1328841445}
   - {fileID: 1559944650}
+  - {fileID: 483531700}
   saveData: 1
 --- !u!4 &325962351
 Transform:
@@ -628,6 +629,23 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   ballSpawner: {fileID: 803040154}
   trackingManager: {fileID: 325962350}
+--- !u!1 &483531699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 202364687, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 1720498560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &483531700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483531699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27412edeb10fb3843b863e0b407613f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &576100625
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,10 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a0c61bfad6ee44cae7da74b974c05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minHitSpeed: 0.5
-  baseHitPower: 5
-  maxHitPower: 20
-  velocityToPowerRatio: 0.5
+  forceMultiplier: 2
 --- !u!1 &792605581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,7 +1084,7 @@ Transform:
   m_GameObject: {fileID: 803040152}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.135, z: -1.208}
+  m_LocalPosition: {x: 0.73, y: 1.135, z: -0.438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1248,6 +1263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TennisBall
       objectReference: {fileID: 0}
+    - target: {fileID: 4567766790742637374, guid: 073c89aac105ec746a06b81d2a0d4bab, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7969121681556707302, guid: 073c89aac105ec746a06b81d2a0d4bab, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1
@@ -1377,8 +1396,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.15, z: 6.1232336e-17}
-  m_Center: {x: 0, y: -0.453, z: 0}
+  m_Size: {x: 1.3994983, y: 0.6970174, z: 6.1232336e-17}
+  m_Center: {x: -0.0005795663, y: -0.6274482, z: 0}
 --- !u!65 &1381599704
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1398,8 +1417,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.15, z: 6.1232336e-17}
-  m_Center: {x: 0, y: 0.453, z: 0}
+  m_Size: {x: 1.4035072, y: 0.72773826, z: 6.1232336e-17}
+  m_Center: {x: 0.0020371822, y: 0.6432426, z: 0}
 --- !u!65 &1381599705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1419,8 +1438,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 6.1232336e-17}
-  m_Center: {x: -0.469, y: 0, z: 0}
+  m_Size: {x: 0.28031644, y: 0.6166015, z: 6.1232336e-17}
+  m_Center: {x: -0.55915934, y: 0.0056562005, z: -0}
 --- !u!65 &1381599706
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1440,8 +1459,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1, y: 1, z: 6.1232336e-17}
-  m_Center: {x: 0.469, y: 0, z: 0}
+  m_Size: {x: 0.27848345, y: 0.59805304, z: 6.1232336e-17}
+  m_Center: {x: 0.5582424, y: -0.004023822, z: 0}
 --- !u!1 &1559944648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4265383661051222324, guid: 073c89aac105ec746a06b81d2a0d4bab, type: 3}
@@ -1753,6 +1772,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1720498566}
+    - targetCorrespondingSourceObject: {fileID: 202364687, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 483531700}
     - targetCorrespondingSourceObject: {fileID: 1670256624, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1720498563}
