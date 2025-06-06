@@ -3,7 +3,7 @@
 --- !u!55 &1
 PhysicsManager:
   m_ObjectHideFlags: 0
-  serializedVersion: 18
+  serializedVersion: 19
   m_Gravity: {x: 0, y: -9.81, z: 0}
   m_DefaultMaterial: {fileID: 0}
   m_BounceThreshold: 2
@@ -17,7 +17,7 @@ PhysicsManager:
   m_EnableAdaptiveForce: 0
   m_ClothInterCollisionDistance: 0
   m_ClothInterCollisionStiffness: 0
-  m_LayerCollisionMatrix: 3ff8ffff3ff8ffffbff9ffffffffffff3ff8ffffffffffffe8ffffff6cf8ffff6cf8ffff68f8ffff68f8ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_LayerCollisionMatrix: 3fe0ffff3fe0ffffbff9ffffffffffff3fe0ffffffffffffe8ffffff6ce0ffff6ce0ffff68e0ffff68e0ffff6ce0ffff6ce0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
   m_SimulationMode: 0
   m_AutoSyncTransforms: 1
   m_ReuseCollisionCallbacks: 1
@@ -29,6 +29,7 @@ PhysicsManager:
   m_FrictionType: 0
   m_EnableEnhancedDeterminism: 0
   m_ImprovedPatchFriction: 0
+  m_GenerateOnTriggerStayEvents: 1
   m_SolverType: 0
   m_DefaultMaxAngularSpeed: 7
   m_ScratchBufferChunkCount: 4

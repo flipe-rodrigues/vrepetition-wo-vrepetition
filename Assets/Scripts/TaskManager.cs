@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-// ALTERAR PARA A APROACH COM O SWITCH
 public class TaskManager : Singleton<TaskManager>
 {
     // Trail variables
@@ -17,6 +15,11 @@ public class TaskManager : Singleton<TaskManager>
 
     public TennisBallSpawner ballSpawner;
     public TrackingManager trackingManager;
+
+    public GameObject net;
+    public MeshRenderer courtMeshRenderer;
+    public GameObject zone;
+
 
 
     private void Start()
@@ -43,6 +46,18 @@ public class TaskManager : Singleton<TaskManager>
 
         // Adiciona um marcador no CSV
         trackingManager.RecordEvent($"TrialStart_{TrialCounter}");
+
+        // Ativa a rede e o mesh da quadra após o trial 10
+        if (TrialCounter > 2)
+        {
+            if (net != null) net.SetActive(true);
+            if (courtMeshRenderer != null) courtMeshRenderer.enabled = true;
+        }
+
+        if (TrialCounter > 5)
+        {
+            if (zone != null) zone.SetActive(true);
+        }
 
 
     }

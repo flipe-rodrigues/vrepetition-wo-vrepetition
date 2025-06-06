@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour {
     public TMP_InputField ageInput;
     public TMP_Dropdown sexDropdown;
     public TMP_Dropdown handednessDropdown;
+    
 
     [SerializeField] private bool _codeIsFilled;
     [SerializeField] private bool _ageIsFilled;
