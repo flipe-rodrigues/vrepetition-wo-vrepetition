@@ -26,7 +26,7 @@ public class TrackingManager :Singleton<TrackingManager>
             return;
         }
 
-        string trajectory_file = string.Concat(UIManager.subjectCode, "_", UIManager.subjectAge, "_", UIManager.subjectSex, "_trajectory_");
+        string trajectory_file = string.Concat(UIManager.subjectCode, "_", UIManager.subjectAge, "_", UIManager.subjectSex, "_", UIManager.subjectTennisExp, "_", UIManager.subjectVRExp, "_trajectory_");
 
         this.CreateIfInexistent(Application.dataPath + "/Data" + "/Trajectories");
 

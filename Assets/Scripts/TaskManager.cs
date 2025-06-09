@@ -48,13 +48,13 @@ public class TaskManager : Singleton<TaskManager>
         trackingManager.RecordEvent($"TrialStart_{TrialCounter}");
 
         // Ativa a rede e o mesh da quadra após o trial 10
-        if (TrialCounter > 2)
+        if (TrialCounter > 50)
         {
             if (net != null) net.SetActive(true);
             if (courtMeshRenderer != null) courtMeshRenderer.enabled = true;
         }
 
-        if (TrialCounter > 5)
+        if (TrialCounter > 100)
         {
             if (zone != null) zone.SetActive(true);
         }
